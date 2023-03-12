@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Unity WebGL Player | VR ROOM</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+
+  <style>
+    canvas {
+      background: #231F20;
+      width: 90%;
+      height: 75%;
+      border-radius: 2px;
+      box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    }
+
+    .interactive {
+      font-weight: bolder;
+      color: black !important;
+      text-align: center;
+      padding-bottom: 20px;
+      font-size: larger !important;
+      transition: .3s;
+    }
+
+    .interactive:hover {
+      color: #6a15e1 !important;
+      transition: .3s;
+    }
+  </style>
+</head>
+
+<body style="text-align: center;background-color: rgba(106,21,225,0.1)">
+  <div class=" container-fluid" style="background-color: #6a15e1; margin: auto; margin-bottom: 1em;">
+    <a class=" navbar-brand h-100 d-flex align-items-center justify-content-center"
+      style="text-align: center; margin: auto; color: white; font-size: 10px;" href="https://vrroom.lv">
+      <img src="horiz.png" alt="Logo" width="125" height="41" class="d-inline-block align-text-top m-1">
+    </a>
+  </div>
+
+  <canvas class="position-absolute top-50 start-50 translate-middle" id="unity-canvas"></canvas>
+
+  <div class="position-absolute bottom-0 start-50 translate-middle-x">
+    <a class="interactive navbar-brand h-100 d-flex align-items-center justify-content-center"
+      style="text-align: center; margin: auto; color: white; font-size: 10px;" href="https://vrroom.lv">
+      Back to vrroom.lv
+    </a>
+  </div>
+
+  <script src="Build/BUILD.loader.js"></script>
+  <script>
+    createUnityInstance(document.querySelector("#unity-canvas"), {
+      dataUrl: "Build/BUILD.data",
+      frameworkUrl: "Build/BUILD.framework.js",
+      codeUrl: "Build/BUILD.wasm",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "1XPGames",
+      productName: "VR ROOM",
+      productVersion: "1.0",
+      // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+      // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+    });
+  </script>
+</body>
+
+</html>
